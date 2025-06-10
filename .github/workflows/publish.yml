@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi # The environment name you configured in PyPI
-      url: https://pypi.org/p/<PYPI_PACKAGE_NAME> # Replace with your package URL
+      url: https://pypi.org/p/pytricopelaje # Replace with your package URL
     permissions:
       id-token: write # IMPORTANT: mandatory for trusted publishing
     steps:
@@ -22,10 +22,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build # Install the build module
+          pip install build auditwheel # Install the build module
       - name: Build package
         run: |
           python -m build # Build the sdist and wheel distributions
+      - name: fix up wheel for manylinux
+        run: |
+          auditwheel repair -w ./dist ./dist/*.whl
+          rm ./dist/*-linux*
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1 # Use the pypi-publish action
         with:
