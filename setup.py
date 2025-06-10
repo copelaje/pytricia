@@ -17,7 +17,7 @@
 #
 
 from setuptools import setup, Extension
-setup(name="pytrijdcopel",
+setup(name="pytricopelaje",
       version="1.2.0",
       description="An efficient IP address storage and lookup module for Python.",
       author="Jeff Copeland",
