@@ -17,13 +17,11 @@
 #
 
 from setuptools import setup, Extension
-setup(name="pytricia", 
+setup(name="pytrijdcopel",
       version="1.2.0",
       description="An efficient IP address storage and lookup module for Python.",
-      author="Joel Sommers",
-      author_email="jsommers@acm.org",
-      url="https://github.com/jsommers/pytricia",
-      # download_url="http://cs.colgate.edu/~jsommers/downloads/pytricia-0.1.tar.gz",
+      author="Jeff Copeland",
+      url="https://github.com/copelaje/pytricia",
       keywords=['patricia tree','IP addresses'],
       classifiers=[
               "Programming Language :: Python :: 2",
